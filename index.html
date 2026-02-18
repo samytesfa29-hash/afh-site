@@ -7,41 +7,33 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M10,90 Q30,70 50,80 T90,60 M20,80 Q10,60 30,50 M50,80 Q60,60 80,70' fill='none' stroke='%231e3a8a' stroke-width='8' stroke-linecap='round'/></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M10 90 C 20 80, 40 90, 50 70 S 80 60, 90 40 M50 70 L 45 60 M50 70 L 60 65 M30 82 L 25 75 M70 65 L 75 55' fill='none' stroke='%231e3a8a' stroke-width='4' stroke-linecap='round'/><ellipse cx='45' cy='60' rx='3' ry='5' fill='%231e3a8a' transform='rotate(-30 45 60)'/><ellipse cx='60' cy='65' rx='3' ry='5' fill='%231e3a8a' transform='rotate(30 60 65)'/><ellipse cx='25' cy='75' rx='3' ry='5' fill='%231e3a8a' transform='rotate(-45 25 75)'/><ellipse cx='75' cy='55' rx='3' ry='5' fill='%231e3a8a' transform='rotate(45 75 55)'/></svg>">
     
-    <meta name="theme-color" content="#1e3a8a">
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lato:wght@300;400;700&display=swap');
         
         body { font-family: 'Lato', sans-serif; overflow-x: hidden; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        /* Match Business Card Gradient */
         .card-gradient {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #3b82f6 100%);
         }
         
-        /* The Vine Accents */
-        .vine-corner {
+        /* DETAILED VINE DESIGN */
+        .vine-detailed {
             position: absolute;
-            width: 220px;
-            height: 220px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='white' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M10,90 Q30,70 50,80 T90,60 M20,80 Q10,60 30,50 M50,80 Q60,60 80,70' opacity='0.5'/%3E%3Ccircle cx='10' cy='90' r='1' fill='white' opacity='0.4'/%3E%3Ccircle cx='30' cy='50' r='1' fill='white' opacity='0.4'/%3E%3Ccircle cx='80' cy='70' r='1' fill='white' opacity='0.4'/%3E%3C/svg%3E");
+            width: 300px;
+            height: 300px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='white'%3E%3Cpath d='M10 90 C 25 80, 45 85, 55 65 S 85 55, 95 35' fill='none' stroke='white' stroke-width='1' opacity='0.5'/%3E%3Cpath d='M55 65 L 48 52 Q 45 48, 42 52 T 48 60 Z' opacity='0.4'/%3E%3Cpath d='M55 65 L 68 58 Q 72 55, 68 50 T 60 58 Z' opacity='0.4'/%3E%3Cpath d='M30 83 L 22 72 Q 18 68, 15 72 T 22 80 Z' opacity='0.4'/%3E%3Cpath d='M75 62 L 85 52 Q 88 48, 82 45 T 75 55 Z' opacity='0.4'/%3E%3Ccircle cx='55' cy='65' r='0.8' opacity='0.6'/%3E%3C/svg%3E");
             background-size: contain;
             background-repeat: no-repeat;
             pointer-events: none;
             z-index: 5;
-            animation: vineFade 2s ease-in-out forwards;
-        }
-        
-        @keyframes vineFade {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 0.6; transform: scale(1); }
         }
 
-        .top-left { top: 10px; left: 10px; transform: rotate(180deg); }
-        .bottom-right { bottom: 10px; right: 10px; }
+        .top-left { top: -20px; left: -20px; transform: rotate(180deg); }
+        .bottom-right { bottom: -20px; right: -20px; }
+        .top-right-sub { top: 10%; right: -50px; transform: rotate(-45deg); opacity: 0.3; }
 
         .glass-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(8px); }
     </style>
@@ -59,117 +51,66 @@
                     <p class="text-[9px] uppercase tracking-[0.2em] text-blue-700 font-bold">Adult Foster Care Home</p>
                 </div>
             </div>
-            <div class="hidden lg:flex space-x-8 text-xs font-bold tracking-widest text-blue-900">
-                <button onclick="scrollToSection('hero')" class="hover:text-blue-500 transition">HOME</button>
-                <button onclick="scrollToSection('about')" class="hover:text-blue-500 transition">OUR MISSION</button>
-                <button onclick="scrollToSection('contact-info')" class="hover:text-blue-500 transition">CONTACT</button>
-            </div>
-            <a href="tel:5034305663" class="bg-blue-900 text-white px-5 py-2 rounded-sm font-bold text-xs shadow-lg hover:bg-blue-800 transition">
-                OFFICE: 503-430-5663
-            </a>
+            <a href="tel:5034305663" class="bg-blue-900 text-white px-5 py-2 rounded-sm font-bold text-xs shadow-lg uppercase tracking-widest">Office: 503-430-5663</a>
         </div>
     </nav>
 
-    <header id="hero" class="relative card-gradient min-h-[95vh] flex items-center justify-center text-center px-6 overflow-hidden">
-        <div class="vine-corner top-left"></div>
-        <div class="vine-corner bottom-right"></div>
+    <header id="hero" class="relative card-gradient min-h-[90vh] flex items-center justify-center text-center px-6 overflow-hidden">
+        <div class="vine-detailed top-left"></div>
+        <div class="vine-detailed bottom-right"></div>
+        <div class="vine-detailed top-right-sub"></div>
         
         <div class="max-w-4xl relative z-10 pt-20">
             <p class="text-blue-200 uppercase tracking-[0.4em] text-xs font-bold mb-4 italic">Owned & Managed by a Registered Nurse</p>
-            <h1 class="text-6xl md:text-8xl text-white font-bold mb-6 drop-shadow-md leading-tight">Peaceful <br><span class="italic font-normal">Harmony</span></h1>
+            <h1 class="text-6xl md:text-8xl text-white font-bold mb-6 drop-shadow-md">Peaceful <br><span class="italic font-normal">Harmony</span></h1>
             <h2 class="text-xl md:text-2xl text-white tracking-[0.2em] uppercase font-light mb-10 opacity-90">Adult Foster Care Home</h2>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="mailto:Peacefulharmonyafh@gmail.com" class="bg-white text-blue-950 px-10 py-4 rounded-sm font-bold shadow-2xl hover:bg-blue-50 transition uppercase tracking-widest text-xs">
-                    Inquire Online
-                </a>
-                <a href="tel:5403945054" class="border border-white/40 text-white px-10 py-4 rounded-sm font-bold hover:bg-white/10 transition uppercase tracking-widest text-xs">
-                    Contact Nurse Aster
-                </a>
+                <a href="tel:5403945054" class="bg-white text-blue-950 px-10 py-4 rounded-sm font-bold shadow-2xl hover:bg-blue-50 transition uppercase tracking-widest text-xs">Cell: 540-394-5054</a>
+                <a href="mailto:Peacefulharmonyafh@gmail.com" class="border border-white/40 text-white px-10 py-4 rounded-sm font-bold hover:bg-white/10 transition uppercase tracking-widest text-xs">Email Nurse Aster</a>
             </div>
         </div>
     </header>
 
-    <section id="about" class="py-24 bg-white">
+    <section class="py-24 bg-white relative">
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
             <div class="border-l-8 border-blue-900 pl-8">
-                <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Professional Expertise</span>
-                <h3 class="text-4xl md:text-5xl font-bold text-blue-950 mt-2 mb-8 leading-tight">Clinical Care in a Home Setting</h3>
-                <p class="text-gray-600 text-lg leading-relaxed mb-8 italic">
-                    "Located in the heart of Beaverton"
-                </p>
+                <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Professional Care</span>
+                <h3 class="text-4xl md:text-5xl font-bold text-blue-950 mt-2 mb-8 leading-tight italic">Aster Birri, RN</h3>
                 <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                    Peaceful Harmony provides expert medical oversight managed by <strong>Aster Birri, RN</strong>. Our facility ensures every resident receives the highest quality of foster care with a personalized nursing touch.
+                    Registered Nurse managed and owned. Our facility provides professional healthcare oversight in the heart of Beaverton, ensuring safety and harmony for every resident.
                 </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div class="bg-blue-50 p-5 rounded border border-blue-100">
-                        <p class="font-bold text-blue-900">Aster Birri, RN</p>
-                        <p class="text-[10px] text-blue-700 uppercase tracking-widest font-bold">Registered Nurse / Owner</p>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded border border-slate-100">
-                        <p class="font-bold text-slate-800">Tesfa Bogale</p>
-                        <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Administrator</p>
-                    </div>
-                </div>
-            </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1581578731522-aa792671230a?auto=format&fit=crop&w=800&q=80" alt="Home interior" class="rounded shadow-2xl">
-            </div>
-        </div>
-    </section>
-
-    <section id="contact-info" class="py-24 bg-slate-950 text-white relative overflow-hidden">
-        <div class="vine-corner top-left opacity-10"></div>
-        <div class="vine-corner bottom-right opacity-10"></div>
-
-        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
-            <h3 class="text-3xl font-bold italic mb-16 tracking-tight font-playfair">Nursing-Led Excellence</h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition">
-                    <i class="fas fa-mobile-screen text-blue-400 text-2xl mb-4"></i>
-                    <h4 class="font-bold text-xs uppercase tracking-widest mb-4">Nursing Cell</h4>
-                    <p class="text-xl">540-394-5054</p>
-                    <p class="text-xs text-slate-500 mt-2 italic">Aster Birri, RN</p>
-                </div>
-                <div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition">
-                    <i class="fas fa-building text-blue-400 text-2xl mb-4"></i>
-                    <h4 class="font-bold text-sm uppercase tracking-widest mb-4">Business Office</h4>
-                    <p class="text-lg">Office: 503-430-5663</p>
-                    <p class="text-lg">Fax: 971-441-7035</p>
-                    <p class="text-xs text-slate-500 mt-2"></p>
-                </div>
-                <div class="bg-white/5 p-8 border border-white/10 rounded-sm hover:bg-white/10 transition">
-                    <i class="fas fa-location-dot text-blue-400 text-2xl mb-4"></i>
-                    <h4 class="font-bold text-sm uppercase tracking-widest mb-4">Beaverton Location</h4>
-                    <p class="text-sm text-slate-300 leading-relaxed uppercase tracking-tighter">
-                        6428 SW 155th Ave<br>
-                        Beaverton, OR 97007
+                <div class="space-y-4">
+                    <p class="flex items-center gap-4 text-blue-900 font-bold uppercase tracking-widest text-sm">
+                        <i class="fas fa-phone"></i> Business: 503-430-5663
+                    </p>
+                    <p class="flex items-center gap-4 text-blue-900 font-bold uppercase tracking-widest text-sm">
+                        <i class="fas fa-fax"></i> Fax: 971-441-7035
                     </p>
                 </div>
             </div>
+            <div class="bg-blue-950 p-1 rounded shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80" alt="Nurse care" class="rounded">
+            </div>
         </div>
     </section>
 
-    <div class="h-[450px] w-full border-t border-slate-900">
-        <iframe src="http://googleusercontent.com/maps.google.com/6" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <section class="py-24 bg-slate-950 text-white relative overflow-hidden text-center">
+        <div class="vine-detailed top-left opacity-10"></div>
+        <div class="max-w-4xl mx-auto px-6">
+            <h4 class="text-blue-400 uppercase tracking-widest text-xs font-bold mb-4 italic">Located in the heart of Beaverton</h4>
+            <p class="text-2xl mb-8">6428 SW 155th Ave, Beaverton, OR 97007</p>
+            <div class="w-20 h-1 bg-blue-900 mx-auto mb-8"></div>
+            <p class="text-slate-400 uppercase tracking-widest text-xs">Peacefulharmonyafh@gmail.com</p>
+        </div>
+    </section>
+
+    <div class="h-[400px] w-full">
+        <iframe src="http://googleusercontent.com/maps.google.com/7" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
-    <footer class="bg-black py-12 text-center">
-        <p class="text-[10px] text-slate-600 uppercase tracking-[0.4em] mb-4">Peaceful Harmony Adult Foster Care Home | © 2026</p>
-        <div class="flex justify-center gap-6 text-slate-800 text-[10px] font-bold tracking-[0.2em] uppercase">
-            <span>Licensed</span>
-            <span>Insured</span>
-            <span>Registered Nurse Managed</span>
-        </div>
+    <footer class="bg-black py-10 text-center text-[10px] text-slate-700 uppercase tracking-[0.4em]">
+        Peaceful Harmony Adult Foster Care Home | © 2026
     </footer>
 
-    <script>
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-    </script>
 </body>
 </html>
