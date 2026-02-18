@@ -15,7 +15,7 @@
         body { font-family: 'Lato', sans-serif; background-color: #0f172a; color: white; }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
         
-        /* THEME: Business Card Gradient Fixed Background */
+        /* 1. FIXED BACKGROUND (Business Card Gradient) */
         .fixed-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -23,53 +23,51 @@
             z-index: -2;
         }
 
-        /* VINE PATTERN */
+        /* 2. REAL VINES (Botanical Line Art, not swooshes) */
         .vine-corner {
             position: fixed;
             width: 400px; height: 400px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='white'%3E%3Cpath d='M10 90 Q 40 60 90 30' fill='none' stroke='white' stroke-width='0.5' opacity='0.3'/%3E%3Cellipse cx='30' cy='70' rx='2' ry='5' transform='rotate(-45 30 70)' opacity='0.3'/%3E%3Cellipse cx='50' cy='60' rx='2' ry='5' transform='rotate(45 50 60)' opacity='0.3'/%3E%3Cellipse cx='70' cy='40' rx='2' ry='5' transform='rotate(-30 70 40)' opacity='0.3'/%3E%3Cpath d='M10 90 Q 60 80 90 60' fill='none' stroke='white' stroke-width='0.5' opacity='0.2'/%3E%3C/svg%3E");
+            /* This SVG draws a Stem with 6 Leaves */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='white' stroke-width='0.8' opacity='0.4'%3E%3Cpath d='M0 100 Q 30 70 80 20' /%3E%3Cpath d='M20 80 Q 10 70 25 65' /%3E%3Cpath d='M40 60 Q 50 50 60 55' /%3E%3Cpath d='M60 40 Q 50 30 65 25' /%3E%3Cellipse cx='25' cy='65' rx='3' ry='6' transform='rotate(-45 25 65)' fill='white' opacity='0.3'/%3E%3Cellipse cx='60' cy='55' rx='3' ry='6' transform='rotate(45 60 55)' fill='white' opacity='0.3'/%3E%3Cellipse cx='65' cy='25' rx='3' ry='6' transform='rotate(-30 65 25)' fill='white' opacity='0.3'/%3E%3C/svg%3E");
             background-size: contain; background-repeat: no-repeat; pointer-events: none; z-index: -1;
         }
-        .top-left { top: -50px; left: -50px; }
-        .bottom-right { bottom: -50px; right: -50px; transform: rotate(180deg); }
+        .top-left { top: 0; left: 0; } /* Standard orientation */
+        .bottom-right { bottom: 0; right: 0; transform: rotate(180deg); } /* Flipped for bottom */
 
-        /* ANIMATION: Flying Birds */
+        /* 3. REAL DOVES (White Birds) */
         .bird-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
+            pointer-events: none; z-index: -1; overflow: hidden;
         }
         .bird {
             position: absolute;
-            opacity: 0;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M21.9,4.9c-2.4,1.3-4.9,2.4-7.4,3.4c-1.3,0.5-2.6,1-3.9,1.5c-0.6,0.2-1.2,0.5-1.8,0.7 c-0.6,0.2-1.2,0.4-1.8,0.6c-0.6,0.2-1.1,0.4-1.7,0.5c-0.6,0.2-1.1,0.3-1.7,0.5C3,12.3,2.4,12.4,1.8,12.5c-0.3,0-0.6,0.1-0.9,0.1 c-0.3,0-0.6,0-0.9,0c-0.1,0-0.1,0-0.2,0c0,0,0,0-0.1,0c0,0,0,0,0,0c0.2,0.3,0.5,0.6,0.8,0.8c0.6,0.5,1.3,0.9,2.1,1.3 c1.5,0.7,3.1,1.3,4.8,1.8c1.6,0.5,3.3,0.9,5,1.2c1.7,0.3,3.4,0.5,5.1,0.6c1.7,0.1,3.4,0.1,5.1,0c0.1,0,0.2,0,0.3,0 c-0.4-0.8-0.9-1.6-1.5-2.3c-1.1-1.4-2.4-2.6-3.8-3.7c-0.7-0.5-1.5-1-2.2-1.5c-0.8-0.5-1.5-0.9-2.3-1.3c-0.8-0.4-1.6-0.8-2.4-1.1 c-0.8-0.4-1.6-0.7-2.4-1c-0.8-0.3-1.6-0.6-2.4-0.9c0.8-0.2,1.6-0.4,2.4-0.5c0.8-0.2,1.6-0.3,2.5-0.5c0.8-0.1,1.7-0.2,2.5-0.3 c0.9-0.1,1.7-0.1,2.6-0.1c0.1,0,0.2,0,0.3,0C21.4,4.9,21.7,4.9,21.9,4.9z'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕊️</text></svg>");
             background-size: contain; background-repeat: no-repeat;
-            width: 30px; height: 30px;
-            animation: fly 15s linear infinite;
+            opacity: 0.8;
+            animation: fly 20s linear infinite;
         }
         @keyframes fly {
             0% { transform: translate(-10vw, 110vh) scale(0.5); opacity: 0; }
-            20% { opacity: 0.6; }
-            80% { opacity: 0.6; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
             100% { transform: translate(110vw, -10vh) scale(1); opacity: 0; }
         }
-        .b1 { animation-delay: 0s; width: 20px; height: 20px; left: 10%; }
-        .b2 { animation-delay: 5s; width: 30px; height: 30px; left: 30%; }
-        .b3 { animation-delay: 2s; width: 15px; height: 15px; left: 60%; }
-        .b4 { animation-delay: 8s; width: 25px; height: 25px; left: 80%; }
+        /* Different sizes and speeds */
+        .b1 { width: 50px; height: 50px; left: 10%; animation-delay: 0s; }
+        .b2 { width: 40px; height: 40px; left: 30%; animation-delay: 5s; }
+        .b3 { width: 30px; height: 30px; left: 70%; animation-delay: 2s; }
 
-        /* THEME: Frosted Glass Cards */
+        /* 4. FROSTED GLASS CARDS */
         .glass-card {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 1.5rem;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
         }
 
-        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); color: #0f172a; }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); color: #0f172a; }
         .transparent-nav { background: transparent; color: white; }
     </style>
 </head>
@@ -83,13 +81,12 @@
         <div class="bird b1"></div>
         <div class="bird b2"></div>
         <div class="bird b3"></div>
-        <div class="bird b4"></div>
     </div>
 
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 transparent-nav py-4">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <button onclick="scrollToSection('hero')" class="flex items-center gap-3 text-left focus:outline-none group">
-                <div class="bg-white/20 backdrop-blur-md border border-white/30 w-10 h-10 flex items-center justify-center rounded-full shadow-lg group-hover:scale-110 transition">
+                <div class="bg-white/10 backdrop-blur-md border border-white/20 w-10 h-10 flex items-center justify-center rounded-full shadow-lg group-hover:scale-110 transition">
                     <i class="fas fa-leaf text-white text-lg"></i>
                 </div>
                 <div>
@@ -147,7 +144,7 @@
                     At Peaceful Harmony, we believe that aging with dignity shouldn't mean sacrificing the comforts of home for clinical safety.
                 </p>
                 <p class="text-blue-100 text-lg leading-relaxed mb-6">
-                    Founded and managed by <strong>Aster Birri, a Registered Nurse</strong>, our Beaverton residence bridges the gap between institutional facilities and independent living. By consciously limiting our home to just five residents, we ensure a staff-to-resident ratio that allows for true personalized care.
+                    Founded and managed by <strong>Aster Birri, a Registered Nurse</strong>, our Beaverton residence bridges the gap between institutional facilities and independent living. We limit our home to just five residents to ensure true personalized care.
                 </p>
                 <p class="text-blue-100 text-lg leading-relaxed">
                     We don't just manage medications; we know our residents' favorite stories. Here, professional health oversight is woven seamlessly into daily life.
@@ -191,10 +188,6 @@
 
     <section id="location" class="py-24 max-w-6xl mx-auto px-6">
         <div class="glass-card p-12 text-center relative overflow-hidden">
-            <div class="absolute -top-10 -right-10 opacity-10 rotate-180">
-                <i class="fas fa-leaf text-9xl"></i>
-            </div>
-
             <h2 class="text-3xl font-bold mb-10">Visit Peaceful Harmony</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
@@ -225,7 +218,7 @@
     </section>
 
     <footer class="text-center py-10 opacity-50 text-xs tracking-widest uppercase">
-        <p>&copy; 2026 Peaceful Harmony Adult Foster Care Home</p>
+        <p>© 2026 Peaceful Harmony Adult Foster Care Home</p>
         <p class="mt-2">Licensed & Insured in Oregon</p>
     </footer>
 
