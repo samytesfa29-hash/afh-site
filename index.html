@@ -3,98 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peaceful Harmony AFH | Beaverton, OR</title>
+    <title>Peaceful Harmony AFH | Professional Care</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-gradient { background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center; }
+        .card-hover:hover { transform: translateY(-10px); transition: all 0.3s ease; }
+    </style>
 </head>
-<body class="bg-slate-50 text-gray-800 font-sans">
+<body class="bg-gray-50">
 
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex flex-col">
-                <span class="text-2xl font-bold text-blue-900 tracking-tight">Peaceful Harmony AFH</span>
-                <span class="text-xs uppercase tracking-widest text-blue-600 font-semibold">Quality Adult Family Home Care</span>
-            </div>
-            <a href="tel:5403945054" class="hidden md:block bg-blue-900 text-white px-5 py-2 rounded-lg font-bold hover:bg-blue-800 transition">Call (540) 394-5054</a>
+    <header class="bg-white py-4 px-6 shadow-sm flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <i class="fas fa-heart-pulse text-blue-600 text-2xl"></i>
+            <span class="text-xl font-bold text-gray-800 tracking-tighter">PEACEFUL HARMONY</span>
         </div>
-    </nav>
+        <a href="tel:5403945054" class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-blue-700">
+            <i class="fas fa-phone mr-2"></i>CALL NOW
+        </a>
+    </header>
 
-    <section class="relative bg-blue-900 py-24 text-white">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Experience Peace, Harmony, and Personalized Care</h2>
-            <p class="text-xl mb-10 opacity-90 italic">A safe, loving residence in Beaverton dedicated to the dignity and well-being of your loved ones.</p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#contact" class="bg-white text-blue-900 px-8 py-3 rounded-full font-bold text-lg shadow-xl hover:bg-gray-100">Schedule a Tour</a>
-                <a href="tel:5403945054" class="bg-blue-700 text-white px-8 py-3 rounded-full font-bold text-lg border border-blue-400 hover:bg-blue-600">Call Aster Birri</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-16 max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-900">
-                <h3 class="font-bold text-lg mb-2">Private Rooms</h3>
-                <p class="text-sm text-gray-600">Spacious, quiet private accommodations designed for comfort and personal privacy.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-900">
-                <h3 class="font-bold text-lg mb-2">Full Accessibility</h3>
-                <p class="text-sm text-gray-600">Wheelchair accessible home with safe entryways and modified facilities.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-900">
-                <h3 class="font-bold text-lg mb-2">24/7 Supervision</h3>
-                <p class="text-sm text-gray-600">Peace of mind knowing trained care is available around the clock.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-900">
-                <h3 class="font-bold text-lg mb-2">Home Cooking</h3>
-                <p class="text-sm text-gray-600">Three nutritious, home-cooked meals daily tailored to dietary requirements.</p>
+    <section class="hero-gradient py-32 px-6 text-center text-white">
+        <div class="max-w-4xl mx-auto">
+            <span class="uppercase tracking-[0.3em] text-sm font-semibold text-blue-300">Adult Family Home</span>
+            <h1 class="text-5xl md:text-6xl font-black mt-4 mb-6">A Beautiful Home for <span class="text-blue-300 italic">Peaceful</span> Living.</h1>
+            <p class="text-xl mb-10 text-gray-200">Located in Beaverton, we provide 24/7 compassionate care in a high-end residential setting.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:5403945054" class="bg-white text-blue-900 px-8 py-4 rounded-xl font-black shadow-2xl hover:bg-gray-100 transition">INQUIRE: 540-394-5054</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="bg-white py-16 px-6">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <section class="py-20 max-w-6xl mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-3xl shadow-xl card-hover border-b-8 border-blue-500">
+                <i class="fas fa-house-chimney-window text-4xl text-blue-600 mb-6"></i>
+                <h3 class="text-2xl font-bold mb-4">5 Private Rooms</h3>
+                <p class="text-gray-600 leading-relaxed">Spacious, light-filled rooms that provide the privacy and dignity your loved one deserves.</p>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-xl card-hover border-b-8 border-green-500">
+                <i class="fas fa-user-nurse text-4xl text-green-600 mb-6"></i>
+                <h3 class="text-2xl font-bold mb-4">Expert Care</h3>
+                <p class="text-gray-600 leading-relaxed">Aster Birri and Tesfa Bogale lead a team dedicated to medication management and ADL support.</p>
+            </div>
+            <div class="bg-white p-6 rounded-3xl shadow-xl card-hover overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1581578731522-aa792671230a?auto=format&fit=crop&w=400&q=80" alt="Dining area" class="rounded-2xl mb-4 w-full h-40 object-cover">
+                <h3 class="text-xl font-bold mb-2 uppercase tracking-tighter">Nutrition First</h3>
+                <p class="text-sm text-gray-500 italic">"Three home-cooked meals served daily in our family dining room."</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-16 px-6">
+        <div class="max-w-5xl mx-auto bg-blue-50 rounded-[3rem] p-12 flex flex-col md:flex-row items-center gap-10 border border-blue-100">
             <div class="md:w-1/2">
-                <h3 class="text-3xl font-bold text-blue-900 mb-4 tracking-tight">Our Family Caring for Yours</h3>
-                <p class="text-gray-700 mb-4 leading-relaxed">
-                    At <strong>Peaceful Harmony AFH</strong>, lead by Aster Birri and Tesfa Bogale, we provide more than just a place to stay—we provide a home. With professional experience and a commitment to heart-led care, we ensure every resident feels valued and respected.
-                </p>
-                <p class="text-gray-700 leading-relaxed">
-                    Our Beaverton location offers a peaceful atmosphere where residents can enjoy their independence while receiving the support they need with daily living, medication management, and social engagement.
-                </p>
+                <h3 class="text-3xl font-bold text-blue-950 mb-4 tracking-tight">Visit Us in Beaverton</h3>
+                <p class="text-gray-700 text-lg mb-6">We are conveniently located at <strong>6428 SW 155th Ave</strong>. Come see why families choose Peaceful Harmony for their long-term care needs.</p>
+                <div class="flex items-center gap-4 text-blue-900 font-bold">
+                    <i class="fas fa-location-dot text-2xl"></i>
+                    <span>6428 SW 155th Ave, Beaverton, OR</span>
+                </div>
             </div>
-            <div class="md:w-1/2 bg-blue-50 p-8 rounded-2xl border border-blue-100">
-                <h4 class="font-bold text-blue-900 mb-4 uppercase text-sm tracking-widest">At a Glance</h4>
-                <ul class="space-y-3">
-                    <li class="flex items-center">✅ Licensed Adult Family Home</li>
-                    <li class="flex items-center">✅ 5 Private Bedrooms</li>
-                    <li class="flex items-center">✅ Full Medication Management</li>
-                    <li class="flex items-center">✅ Daily Housekeeping & Laundry</li>
-                </ul>
+            <div class="md:w-1/2 w-full">
+                <div class="bg-white p-8 rounded-3xl shadow-inner border border-gray-100">
+                    <p class="text-center text-sm uppercase tracking-widest font-bold text-gray-400 mb-4">Contact Aster Birri</p>
+                    <a href="tel:5403945054" class="block w-full text-center bg-blue-600 text-white py-5 rounded-2xl text-2xl font-black shadow-lg hover:bg-blue-700 active:scale-95 transition">
+                        540-394-5054
+                    </a>
+                    <p class="text-center mt-4 text-gray-400 text-xs">Tap to call from your mobile phone</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="bg-blue-900 text-white py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-3xl font-bold mb-8">Ready to visit us?</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
-                <div class="bg-blue-800 p-8 rounded-xl">
-                    <h4 class="font-bold text-xl mb-4">Location</h4>
-                    <p class="opacity-90 leading-loose">
-                        6428 SW 155th Ave<br>
-                        Beaverton, OR 97007
-                    </p>
-                </div>
-                <div class="bg-blue-800 p-8 rounded-xl">
-                    <h4 class="font-bold text-xl mb-4">Contact Info</h4>
-                    <p class="opacity-90 leading-loose">
-                        <strong>Phone:</strong> (540) 394-5054<br>
-                        <strong>Email:</strong> PeacefulHarmonyafh@gmail.com<br>
-                        <strong>Contact:</strong> Aster Birri
-                    </p>
-                </div>
-            </div>
-            <p class="mt-12 text-sm opacity-50">&copy; 2026 Peaceful Harmony AFH. Licensed and Insured.</p>
-        </div>
+    <footer class="py-10 text-center text-gray-400 text-xs">
+        &copy; 2026 Peaceful Harmony AFH | Licensed & Insured | Beaverton, Oregon
     </footer>
 
 </body>
