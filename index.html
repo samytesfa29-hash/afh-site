@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Custom Animations */
+        /* Typography & Custom Styles */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
         
         body { font-family: 'Lato', sans-serif; }
@@ -16,11 +16,13 @@
         .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, visibility; }
         .fade-in-section.is-visible { opacity: 1; transform: none; }
         
+        /* Parallax Background */
         .hero-parallax {
             background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.6)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1973&q=80');
             background-attachment: fixed;
             background-position: center;
             background-size: cover;
+            min-height: 100vh; /* Changed to min-height to prevent cutting off content */
         }
 
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
@@ -31,28 +33,30 @@
 
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 transparent-nav py-4">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="bg-blue-900 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg">
+            <button onclick="scrollToSection('hero')" class="flex items-center gap-3 text-left focus:outline-none group">
+                <div class="bg-blue-900 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg group-hover:scale-110 transition">
                     <i class="fas fa-leaf text-lg"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-tight text-slate-900 lg:text-white" id="nav-text">PEACEFUL HARMONY</h1>
-                    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-600 lg:text-blue-200" id="nav-sub">Adult Family Home</p>
+                    <h1 class="text-xl font-bold tracking-tight text-slate-900 lg:text-white transition-colors" id="nav-text">PEACEFUL HARMONY</h1>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-600 lg:text-blue-200 transition-colors" id="nav-sub">Adult Family Home</p>
                 </div>
+            </button>
+            
+            <div class="hidden md:flex space-x-8 font-medium text-sm tracking-wide text-slate-800 lg:text-white transition-colors" id="nav-links">
+                <button onclick="scrollToSection('about')" class="hover:text-blue-400 transition uppercase">Our Home</button>
+                <button onclick="scrollToSection('care')" class="hover:text-blue-400 transition uppercase">Care Services</button>
+                <button onclick="scrollToSection('location')" class="hover:text-blue-400 transition uppercase">Location</button>
             </div>
-            <div class="hidden md:flex space-x-8 font-medium text-sm tracking-wide text-slate-800 lg:text-white" id="nav-links">
-                <a href="#about" class="hover:text-blue-400 transition">OUR HOME</a>
-                <a href="#care" class="hover:text-blue-400 transition">CARE SERVICES</a>
-                <a href="#location" class="hover:text-blue-400 transition">LOCATION</a>
-            </div>
+
             <a href="tel:5403945054" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-xl transition transform hover:scale-105">
                 (540) 394-5054
             </a>
         </div>
     </nav>
 
-    <header class="hero-parallax h-screen flex items-center justify-center text-center px-6 relative">
-        <div class="max-w-4xl fade-in-section is-visible">
+    <header id="hero" class="hero-parallax flex items-center justify-center text-center px-6 relative pb-20">
+        <div class="max-w-4xl fade-in-section is-visible pt-20">
             <div class="inline-block border border-blue-300/30 bg-blue-900/30 backdrop-blur-sm px-4 py-1 rounded-full text-blue-100 text-xs font-bold uppercase tracking-widest mb-6">
                 Licensed & Insured in Beaverton, OR
             </div>
@@ -63,36 +67,24 @@
                 Experience the highest standard of personalized senior living with Aster Birri & Tesfa Bogale. A private sanctuary where dignity comes first.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#location" class="bg-white text-slate-900 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition shadow-lg">
+                <button onclick="scrollToSection('location')" class="bg-white text-slate-900 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition shadow-lg text-lg">
                     Schedule a Tour
-                </a>
-                <a href="#care" class="border border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition">
+                </button>
+                <button onclick="scrollToSection('care')" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition text-lg">
                     View Services
-                </a>
+                </button>
             </div>
         </div>
         
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
-            <i class="fas fa-chevron-down text-2xl"></i>
-        </div>
+        <button onclick="scrollToSection('stats')" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70 hover:text-white transition cursor-pointer z-20 p-4">
+            <i class="fas fa-chevron-down text-3xl"></i>
+        </button>
     </header>
 
-    <div class="bg-blue-900 text-white py-12 relative z-10 -mt-8 mx-4 md:mx-20 rounded-xl shadow-2xl flex flex-wrap justify-around text-center gap-8">
+    <div id="stats" class="bg-blue-900 text-white py-12 relative z-10 -mt-8 mx-4 md:mx-20 rounded-xl shadow-2xl flex flex-wrap justify-around text-center gap-8 border-t border-blue-800">
         <div class="fade-in-section">
             <i class="fas fa-bed text-3xl mb-2 text-blue-300"></i>
             <p class="text-3xl font-bold">5</p>
             <p class="text-xs uppercase tracking-widest opacity-70">Private Suites</p>
         </div>
-        <div class="fade-in-section">
-            <i class="fas fa-user-nurse text-3xl mb-2 text-blue-300"></i>
-            <p class="text-3xl font-bold">24/7</p>
-            <p class="text-xs uppercase tracking-widest opacity-70">Awake Staff</p>
-        </div>
-        <div class="fade-in-section">
-            <i class="fas fa-star text-3xl mb-2 text-blue-300"></i>
-            <p class="text-3xl font-bold">100%</p>
-            <p class="text-xs uppercase tracking-widest opacity-70">Dedication</p>
-        </div>
-    </div>
-
-    <section id="about" class="py-24 max
+        <div class="fade-in-
