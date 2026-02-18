@@ -1,84 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peaceful Harmony AFH | Professional Care</title>
+    <title>Peaceful Harmony AFH | Beaverton's Premier Care</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        .hero-gradient { background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center; }
-        .card-hover:hover { transform: translateY(-10px); transition: all 0.3s ease; }
+        /* Custom Animations */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+        
+        body { font-family: 'Lato', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+        .fade-in-section { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, visibility; }
+        .fade-in-section.is-visible { opacity: 1; transform: none; }
+        
+        .hero-parallax {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.6)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1973&q=80');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        .transparent-nav { background: transparent; box-shadow: none; }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 text-slate-800 antialiased">
 
-    <header class="bg-white py-4 px-6 shadow-sm flex justify-between items-center">
-        <div class="flex items-center gap-2">
-            <i class="fas fa-heart-pulse text-blue-600 text-2xl"></i>
-            <span class="text-xl font-bold text-gray-800 tracking-tighter">PEACEFUL HARMONY</span>
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 transparent-nav py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-blue-900 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg">
+                    <i class="fas fa-leaf text-lg"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-slate-900 lg:text-white" id="nav-text">PEACEFUL HARMONY</h1>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-600 lg:text-blue-200" id="nav-sub">Adult Family Home</p>
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium text-sm tracking-wide text-slate-800 lg:text-white" id="nav-links">
+                <a href="#about" class="hover:text-blue-400 transition">OUR HOME</a>
+                <a href="#care" class="hover:text-blue-400 transition">CARE SERVICES</a>
+                <a href="#location" class="hover:text-blue-400 transition">LOCATION</a>
+            </div>
+            <a href="tel:5403945054" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-xl transition transform hover:scale-105">
+                (540) 394-5054
+            </a>
         </div>
-        <a href="tel:5403945054" class="bg-blue-600 text-white px-5 py-2 rounded-full font-bold text-sm hover:bg-blue-700">
-            <i class="fas fa-phone mr-2"></i>CALL NOW
-        </a>
+    </nav>
+
+    <header class="hero-parallax h-screen flex items-center justify-center text-center px-6 relative">
+        <div class="max-w-4xl fade-in-section is-visible">
+            <div class="inline-block border border-blue-300/30 bg-blue-900/30 backdrop-blur-sm px-4 py-1 rounded-full text-blue-100 text-xs font-bold uppercase tracking-widest mb-6">
+                Licensed & Insured in Beaverton, OR
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                Care that feels like <br><span class="text-blue-300 italic">Family.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Experience the highest standard of personalized senior living with Aster Birri & Tesfa Bogale. A private sanctuary where dignity comes first.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <a href="#location" class="bg-white text-slate-900 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition shadow-lg">
+                    Schedule a Tour
+                </a>
+                <a href="#care" class="border border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition">
+                    View Services
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
     </header>
 
-    <section class="hero-gradient py-32 px-6 text-center text-white">
-        <div class="max-w-4xl mx-auto">
-            <span class="uppercase tracking-[0.3em] text-sm font-semibold text-blue-300">Adult Family Home</span>
-            <h1 class="text-5xl md:text-6xl font-black mt-4 mb-6">A Beautiful Home for <span class="text-blue-300 italic">Peaceful</span> Living.</h1>
-            <p class="text-xl mb-10 text-gray-200">Located in Beaverton, we provide 24/7 compassionate care in a high-end residential setting.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="tel:5403945054" class="bg-white text-blue-900 px-8 py-4 rounded-xl font-black shadow-2xl hover:bg-gray-100 transition">INQUIRE: 540-394-5054</a>
-            </div>
+    <div class="bg-blue-900 text-white py-12 relative z-10 -mt-8 mx-4 md:mx-20 rounded-xl shadow-2xl flex flex-wrap justify-around text-center gap-8">
+        <div class="fade-in-section">
+            <i class="fas fa-bed text-3xl mb-2 text-blue-300"></i>
+            <p class="text-3xl font-bold">5</p>
+            <p class="text-xs uppercase tracking-widest opacity-70">Private Suites</p>
         </div>
-    </section>
-
-    <section class="py-20 max-w-6xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-3xl shadow-xl card-hover border-b-8 border-blue-500">
-                <i class="fas fa-house-chimney-window text-4xl text-blue-600 mb-6"></i>
-                <h3 class="text-2xl font-bold mb-4">5 Private Rooms</h3>
-                <p class="text-gray-600 leading-relaxed">Spacious, light-filled rooms that provide the privacy and dignity your loved one deserves.</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow-xl card-hover border-b-8 border-green-500">
-                <i class="fas fa-user-nurse text-4xl text-green-600 mb-6"></i>
-                <h3 class="text-2xl font-bold mb-4">Expert Care</h3>
-                <p class="text-gray-600 leading-relaxed">Aster Birri and Tesfa Bogale lead a team dedicated to medication management and ADL support.</p>
-            </div>
-            <div class="bg-white p-6 rounded-3xl shadow-xl card-hover overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1581578731522-aa792671230a?auto=format&fit=crop&w=400&q=80" alt="Dining area" class="rounded-2xl mb-4 w-full h-40 object-cover">
-                <h3 class="text-xl font-bold mb-2 uppercase tracking-tighter">Nutrition First</h3>
-                <p class="text-sm text-gray-500 italic">"Three home-cooked meals served daily in our family dining room."</p>
-            </div>
+        <div class="fade-in-section">
+            <i class="fas fa-user-nurse text-3xl mb-2 text-blue-300"></i>
+            <p class="text-3xl font-bold">24/7</p>
+            <p class="text-xs uppercase tracking-widest opacity-70">Awake Staff</p>
         </div>
-    </section>
-
-    <section class="bg-white py-16 px-6">
-        <div class="max-w-5xl mx-auto bg-blue-50 rounded-[3rem] p-12 flex flex-col md:flex-row items-center gap-10 border border-blue-100">
-            <div class="md:w-1/2">
-                <h3 class="text-3xl font-bold text-blue-950 mb-4 tracking-tight">Visit Us in Beaverton</h3>
-                <p class="text-gray-700 text-lg mb-6">We are conveniently located at <strong>6428 SW 155th Ave</strong>. Come see why families choose Peaceful Harmony for their long-term care needs.</p>
-                <div class="flex items-center gap-4 text-blue-900 font-bold">
-                    <i class="fas fa-location-dot text-2xl"></i>
-                    <span>6428 SW 155th Ave, Beaverton, OR</span>
-                </div>
-            </div>
-            <div class="md:w-1/2 w-full">
-                <div class="bg-white p-8 rounded-3xl shadow-inner border border-gray-100">
-                    <p class="text-center text-sm uppercase tracking-widest font-bold text-gray-400 mb-4">Contact Aster Birri</p>
-                    <a href="tel:5403945054" class="block w-full text-center bg-blue-600 text-white py-5 rounded-2xl text-2xl font-black shadow-lg hover:bg-blue-700 active:scale-95 transition">
-                        540-394-5054
-                    </a>
-                    <p class="text-center mt-4 text-gray-400 text-xs">Tap to call from your mobile phone</p>
-                </div>
-            </div>
+        <div class="fade-in-section">
+            <i class="fas fa-star text-3xl mb-2 text-blue-300"></i>
+            <p class="text-3xl font-bold">100%</p>
+            <p class="text-xs uppercase tracking-widest opacity-70">Dedication</p>
         </div>
-    </section>
+    </div>
 
-    <footer class="py-10 text-center text-gray-400 text-xs">
-        &copy; 2026 Peaceful Harmony AFH | Licensed & Insured | Beaverton, Oregon
-    </footer>
-
-</body>
-</html>
+    <section id="about" class="py-24 max
