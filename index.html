@@ -10,273 +10,240 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M10 90 C 20 80, 40 90, 50 70 S 80 60, 90 40 M50 70 L 45 60 M50 70 L 60 65' fill='none' stroke='%231e3a8a' stroke-width='4' stroke-linecap='round'/><ellipse cx='45' cy='60' rx='3' ry='5' fill='%231e3a8a' transform='rotate(-30 45 60)'/><ellipse cx='60' cy='65' rx='3' ry='5' fill='%231e3a8a' transform='rotate(30 60 65)'/></svg>">
 
     <style>
-        /* Typography */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
         
-        body { font-family: 'Lato', sans-serif; }
+        body { font-family: 'Lato', sans-serif; background-color: #0f172a; color: white; }
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
         
-        /* FIXED: Hero Background is now the Business Card Gradient */
-        .hero-bg {
+        /* THEME: Business Card Gradient Fixed Background */
+        .fixed-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #3b82f6 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
+            z-index: -2;
         }
 
-        /* Detailed Vine Pattern */
+        /* VINE PATTERN */
         .vine-corner {
-            position: absolute;
-            width: 350px; height: 350px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='white'%3E%3Cpath d='M10 90 Q 40 60 90 30' fill='none' stroke='white' stroke-width='0.5' opacity='0.4'/%3E%3Cellipse cx='30' cy='70' rx='2' ry='5' transform='rotate(-45 30 70)' opacity='0.4'/%3E%3Cellipse cx='50' cy='60' rx='2' ry='5' transform='rotate(45 50 60)' opacity='0.4'/%3E%3Cellipse cx='70' cy='40' rx='2' ry='5' transform='rotate(-30 70 40)' opacity='0.4'/%3E%3Cpath d='M10 90 Q 60 80 90 60' fill='none' stroke='white' stroke-width='0.5' opacity='0.3'/%3E%3C/svg%3E");
-            background-size: contain; background-repeat: no-repeat; pointer-events: none; z-index: 5;
+            position: fixed;
+            width: 400px; height: 400px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='white'%3E%3Cpath d='M10 90 Q 40 60 90 30' fill='none' stroke='white' stroke-width='0.5' opacity='0.3'/%3E%3Cellipse cx='30' cy='70' rx='2' ry='5' transform='rotate(-45 30 70)' opacity='0.3'/%3E%3Cellipse cx='50' cy='60' rx='2' ry='5' transform='rotate(45 50 60)' opacity='0.3'/%3E%3Cellipse cx='70' cy='40' rx='2' ry='5' transform='rotate(-30 70 40)' opacity='0.3'/%3E%3Cpath d='M10 90 Q 60 80 90 60' fill='none' stroke='white' stroke-width='0.5' opacity='0.2'/%3E%3C/svg%3E");
+            background-size: contain; background-repeat: no-repeat; pointer-events: none; z-index: -1;
         }
-        .top-left { top: -50px; left: -50px; transform: rotate(0deg); }
+        .top-left { top: -50px; left: -50px; }
         .bottom-right { bottom: -50px; right: -50px; transform: rotate(180deg); }
 
-        /* Navigation Bar Styles */
-        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .transparent-nav { background: transparent; box-shadow: none; }
+        /* ANIMATION: Flying Birds */
+        .bird-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bird {
+            position: absolute;
+            opacity: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M21.9,4.9c-2.4,1.3-4.9,2.4-7.4,3.4c-1.3,0.5-2.6,1-3.9,1.5c-0.6,0.2-1.2,0.5-1.8,0.7 c-0.6,0.2-1.2,0.4-1.8,0.6c-0.6,0.2-1.1,0.4-1.7,0.5c-0.6,0.2-1.1,0.3-1.7,0.5C3,12.3,2.4,12.4,1.8,12.5c-0.3,0-0.6,0.1-0.9,0.1 c-0.3,0-0.6,0-0.9,0c-0.1,0-0.1,0-0.2,0c0,0,0,0-0.1,0c0,0,0,0,0,0c0.2,0.3,0.5,0.6,0.8,0.8c0.6,0.5,1.3,0.9,2.1,1.3 c1.5,0.7,3.1,1.3,4.8,1.8c1.6,0.5,3.3,0.9,5,1.2c1.7,0.3,3.4,0.5,5.1,0.6c1.7,0.1,3.4,0.1,5.1,0c0.1,0,0.2,0,0.3,0 c-0.4-0.8-0.9-1.6-1.5-2.3c-1.1-1.4-2.4-2.6-3.8-3.7c-0.7-0.5-1.5-1-2.2-1.5c-0.8-0.5-1.5-0.9-2.3-1.3c-0.8-0.4-1.6-0.8-2.4-1.1 c-0.8-0.4-1.6-0.7-2.4-1c-0.8-0.3-1.6-0.6-2.4-0.9c0.8-0.2,1.6-0.4,2.4-0.5c0.8-0.2,1.6-0.3,2.5-0.5c0.8-0.1,1.7-0.2,2.5-0.3 c0.9-0.1,1.7-0.1,2.6-0.1c0.1,0,0.2,0,0.3,0C21.4,4.9,21.7,4.9,21.9,4.9z'/%3E%3C/svg%3E");
+            background-size: contain; background-repeat: no-repeat;
+            width: 30px; height: 30px;
+            animation: fly 15s linear infinite;
+        }
+        @keyframes fly {
+            0% { transform: translate(-10vw, 110vh) scale(0.5); opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
+            100% { transform: translate(110vw, -10vh) scale(1); opacity: 0; }
+        }
+        .b1 { animation-delay: 0s; width: 20px; height: 20px; left: 10%; }
+        .b2 { animation-delay: 5s; width: 30px; height: 30px; left: 30%; }
+        .b3 { animation-delay: 2s; width: 15px; height: 15px; left: 60%; }
+        .b4 { animation-delay: 8s; width: 25px; height: 25px; left: 80%; }
+
+        /* THEME: Frosted Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); color: #0f172a; }
+        .transparent-nav { background: transparent; color: white; }
     </style>
 </head>
-<body class="bg-gray-50 text-slate-800 antialiased">
+<body class="antialiased">
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 transparent-nav py-4">
+    <div class="fixed-bg"></div>
+    <div class="vine-corner top-left"></div>
+    <div class="vine-corner bottom-right"></div>
+    
+    <div class="bird-container">
+        <div class="bird b1"></div>
+        <div class="bird b2"></div>
+        <div class="bird b3"></div>
+        <div class="bird b4"></div>
+    </div>
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 transparent-nav py-4">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <button onclick="scrollToSection('hero')" class="flex items-center gap-3 text-left focus:outline-none group">
-                <div class="bg-blue-900 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-lg group-hover:scale-110 transition">
-                    <i class="fas fa-leaf text-lg"></i>
+                <div class="bg-white/20 backdrop-blur-md border border-white/30 w-10 h-10 flex items-center justify-center rounded-full shadow-lg group-hover:scale-110 transition">
+                    <i class="fas fa-leaf text-white text-lg"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-tight text-slate-900 lg:text-white transition-colors" id="nav-text">PEACEFUL HARMONY</h1>
-                    <p class="text-[10px] uppercase tracking-[0.2em] text-slate-600 lg:text-blue-200 transition-colors" id="nav-sub">Adult Foster Care Home</p>
+                    <h1 class="text-xl font-bold tracking-tight uppercase">PEACEFUL HARMONY</h1>
+                    <p class="text-[10px] uppercase tracking-[0.2em] opacity-80">Adult Foster Care Home</p>
                 </div>
             </button>
-            
-            <div class="hidden md:flex space-x-8 font-medium text-sm tracking-wide text-slate-800 lg:text-white transition-colors" id="nav-links">
-                <button onclick="scrollToSection('about')" class="hover:text-blue-400 transition uppercase">Our Home</button>
-                <button onclick="scrollToSection('care')" class="hover:text-blue-400 transition uppercase">Care Services</button>
-                <button onclick="scrollToSection('location')" class="hover:text-blue-400 transition uppercase">Location</button>
+            <div class="hidden md:flex space-x-8 font-bold text-xs tracking-widest">
+                <button onclick="scrollToSection('about')" class="hover:text-blue-200 transition">OUR HOME</button>
+                <button onclick="scrollToSection('care')" class="hover:text-blue-200 transition">SERVICES</button>
+                <button onclick="scrollToSection('location')" class="hover:text-blue-200 transition">CONTACT</button>
             </div>
-
-            <a href="tel:5403945054" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2.5 rounded-full font-bold text-sm shadow-xl transition transform hover:scale-105">
-                (540) 394-5054
+            <a href="tel:5034305663" class="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-2 rounded-full font-bold text-xs hover:bg-white/20 transition">
+                OFFICE: 503-430-5663
             </a>
         </div>
     </nav>
 
-    <header id="hero" class="hero-bg flex items-center justify-center text-center px-6 relative pb-20">
-        <div class="vine-corner top-left"></div>
-        <div class="vine-corner bottom-right"></div>
-
+    <header id="hero" class="min-h-screen flex items-center justify-center text-center px-6 relative pb-20">
         <div class="max-w-4xl pt-20 relative z-10">
-            <div class="inline-block border border-blue-300/30 bg-blue-900/30 backdrop-blur-sm px-4 py-1 rounded-full text-blue-100 text-xs font-bold uppercase tracking-widest mb-6">
+            <div class="inline-block glass-card px-6 py-2 rounded-full text-blue-100 text-xs font-bold uppercase tracking-widest mb-8">
                 Owned & Managed by a Registered Nurse
             </div>
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-                Care that feels like <br><span class="text-blue-300 italic">Family.</span>
+            <h1 class="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                Peaceful <br><span class="italic font-normal text-blue-200">Harmony</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Experience the highest standard of personalized senior living with <strong>Aster Birri, RN</strong> & Tesfa Bogale. A private sanctuary where dignity comes first.
+            <p class="text-lg md:text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+                Experience the highest standard of personalized senior living with <strong>Aster Birri, RN</strong>. A private sanctuary where dignity comes first.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="mailto:PeacefulHarmonyafh@gmail.com?subject=Inquiry about Tour" class="bg-white text-slate-900 px-8 py-4 rounded-lg font-bold hover:bg-gray-100 transition shadow-lg text-lg">
+                <a href="mailto:PeacefulHarmonyafh@gmail.com?subject=Inquiry about Tour" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-bold hover:bg-blue-50 transition shadow-lg text-sm tracking-widest uppercase">
                     Schedule a Tour
                 </a>
-                <button onclick="scrollToSection('care')" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition text-lg">
+                <button onclick="scrollToSection('care')" class="glass-card text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition text-sm tracking-widest uppercase">
                     View Services
                 </button>
             </div>
         </div>
         
-        <button onclick="scrollToSection('stats')" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/70 hover:text-white transition cursor-pointer z-20 p-4">
-            <i class="fas fa-chevron-down text-3xl"></i>
+        <button onclick="scrollToSection('about')" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50 hover:text-white transition cursor-pointer z-20 p-4">
+            <i class="fas fa-chevron-down text-2xl"></i>
         </button>
     </header>
 
-    <div id="stats" class="bg-blue-900 text-white py-12 relative z-10 -mt-8 mx-4 md:mx-20 rounded-xl shadow-2xl flex flex-wrap justify-around text-center gap-8 border-t border-blue-800">
-        <div>
-            <i class="fas fa-bed text-3xl mb-2 text-blue-300"></i>
-            <p class="text-3xl font-bold">5</p>
-            <p class="text-xs uppercase tracking-widest opacity-70">Private Suites</p>
-        </div>
-        <div>
-            <i class="fas fa-user-nurse text-3xl mb-2 text-blue-300"></i>
-            <p class="text-3xl font-bold">24/7</p>
-            <p class="text-xs uppercase tracking-widest opacity-70">Awake Staff</p>
-        </div>
-        <div>
-            <i class="fas fa-star text-3xl mb-2 text-blue-300"></i>
-            <p class="text-3xl font-bold">100%</p>
-            <p class="text-xs uppercase tracking-widest opacity-70">Dedication</p>
-        </div>
-    </div>
-
-    <section id="about" class="py-24 max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+    <section id="about" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="glass-card p-10 md:p-16 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div class="relative">
-                <div class="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-full -z-10"></div>
-                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Senior Care" class="rounded-2xl shadow-2xl w-full object-cover h-[500px]">
-                <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border-l-4 border-blue-600 hidden md:block">
-                    <p class="font-playfair italic text-xl text-slate-800">"A place of peace."</p>
-                </div>
+                <div class="absolute -top-4 -left-4 w-24 h-24 bg-blue-500/20 rounded-full -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Senior Care" class="rounded-2xl shadow-2xl w-full object-cover h-[400px] border border-white/10">
             </div>
             <div>
-                <span class="text-blue-600 font-bold uppercase tracking-widest text-sm">Our Philosophy</span>
-                <h2 class="text-4xl font-bold text-slate-900 mt-2 mb-6">More Than a Facility. <br>This is Home.</h2>
-                <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                    Peaceful Harmony AFH stands as a beacon of compassionate care in Beaverton. Managed by <strong>Aster Birri, RN</strong> and <strong>Tesfa Bogale</strong>, we reject the "institutional" feel of large nursing homes.
+                <span class="text-blue-300 font-bold uppercase tracking-widest text-xs mb-2 block">Our Philosophy</span>
+                <h2 class="text-3xl font-bold text-white mb-6">Clinical Excellence in a Family Home</h2>
+                <p class="text-blue-100 text-lg leading-relaxed mb-6">
+                    At Peaceful Harmony, we believe that aging with dignity shouldn't mean sacrificing the comforts of home for clinical safety.
                 </p>
-                <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                    We believe that the best care happens in a small, intimate setting where we know every resident's favorite song, favorite meal, and life story.
+                <p class="text-blue-100 text-lg leading-relaxed mb-6">
+                    Founded and managed by <strong>Aster Birri, a Registered Nurse</strong>, our Beaverton residence bridges the gap between institutional facilities and independent living. By consciously limiting our home to just five residents, we ensure a staff-to-resident ratio that allows for true personalized care.
                 </p>
-                <ul class="space-y-4">
-                    <li class="flex items-center gap-3 text-slate-700 font-medium">
-                        <i class="fas fa-check-circle text-green-500"></i> Full Accessibility (Ramps & Showers)
-                    </li>
-                    <li class="flex items-center gap-3 text-slate-700 font-medium">
-                        <i class="fas fa-check-circle text-green-500"></i> Secure & Quiet Neighborhood
-                    </li>
-                    <li class="flex items-center gap-3 text-slate-700 font-medium">
-                        <i class="fas fa-check-circle text-green-500"></i> Medication Management Experts
-                    </li>
-                </ul>
+                <p class="text-blue-100 text-lg leading-relaxed">
+                    We don't just manage medications; we know our residents' favorite stories. Here, professional health oversight is woven seamlessly into daily life.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="care" class="py-24 bg-slate-900 text-white">
+    <section id="care" class="py-24">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Comprehensive Care Services</h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">We handle the complexities of healthcare so you can focus on spending quality time with your loved one.</p>
+                <h2 class="text-4xl font-bold mb-4">Comprehensive Care</h2>
+                <p class="text-blue-200 max-w-2xl mx-auto">RN-Managed oversight for complex needs.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition duration-300 hover:-translate-y-2">
-                    <div class="bg-blue-900/50 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-pills text-blue-400 text-2xl"></i>
+                <div class="glass-card p-10 hover:-translate-y-2 transition duration-300">
+                    <div class="bg-blue-500/20 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-user-nurse text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Health Management</h3>
-                    <p class="text-slate-400 leading-relaxed">Rigorous oversight of medications, doctor appointments, and daily vitals monitoring. We coordinate directly with pharmacies.</p>
+                    <p class="text-blue-100 leading-relaxed text-sm">Rigorous oversight of medications (including insulin), doctor appointments, and daily vitals monitoring by Aster Birri, RN.</p>
                 </div>
-                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition duration-300 hover:-translate-y-2">
-                    <div class="bg-blue-900/50 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-carrot text-blue-400 text-2xl"></i>
+                <div class="glass-card p-10 hover:-translate-y-2 transition duration-300">
+                    <div class="bg-blue-500/20 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-carrot text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Nutrition & Dining</h3>
-                    <p class="text-slate-400 leading-relaxed">Three home-cooked, balanced meals daily. We accommodate diabetic, low-sodium, and texture-modified diets with ease.</p>
+                    <p class="text-blue-100 leading-relaxed text-sm">Three home-cooked, balanced meals daily. We accommodate diabetic, low-sodium, and texture-modified diets.</p>
                 </div>
-                <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 hover:border-blue-500 transition duration-300 hover:-translate-y-2">
-                    <div class="bg-blue-900/50 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
-                        <i class="fas fa-hands-holding-circle text-blue-400 text-2xl"></i>
+                <div class="glass-card p-10 hover:-translate-y-2 transition duration-300">
+                    <div class="bg-blue-500/20 w-14 h-14 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-heart text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Daily Living Support</h3>
-                    <p class="text-slate-400 leading-relaxed">Respectful assistance with bathing, dressing, and grooming. We maintain dignity while ensuring hygiene and safety.</p>
+                    <h3 class="text-xl font-bold mb-3">Daily Support</h3>
+                    <p class="text-blue-100 leading-relaxed text-sm">Respectful assistance with bathing, dressing, and grooming. A safe, accessible environment for mobility needs.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="location" class="py-0 relative">
-        <div class="grid grid-cols-1 lg:grid-cols-2 h-[600px]">
-            <div class="bg-white p-12 flex flex-col justify-center">
-                <span class="text-blue-600 font-bold uppercase tracking-widest text-sm mb-2">Visit Us</span>
-                <h2 class="text-4xl font-bold text-slate-900 mb-6">Conveniently Located in Beaverton</h2>
-                <p class="text-gray-600 mb-8">
-                    Our home is situated in a quiet, residential neighborhood, moments away from major medical centers and parks.
-                </p>
-                <div class="space-y-6">
-                    <div class="flex items-start gap-4">
-                        <div class="bg-blue-50 p-3 rounded-full text-blue-600"><i class="fas fa-map-pin"></i></div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">Address</h4>
-                            <p class="text-gray-600">6428 SW 155th Ave<br>Beaverton, OR 97007</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-4">
-                        <div class="bg-blue-50 p-3 rounded-full text-blue-600"><i class="fas fa-phone"></i></div>
-                        <div>
-                            <h4 class="font-bold text-slate-900">Direct Contact</h4>
-                            <p class="text-gray-600"><strong>Cell:</strong> (540) 394-5054 (Aster Birri, RN)</p>
-                            <p class="text-gray-600"><strong>Business:</strong> (503) 430-5663</p>
-                            <p class="text-gray-600"><strong>Fax:</strong> (971) 441-7035</p>
-                            <p class="text-blue-600 text-sm mt-1">PeacefulHarmonyafh@gmail.com</p>
-                        </div>
-                    </div>
+    <section id="location" class="py-24 max-w-6xl mx-auto px-6">
+        <div class="glass-card p-12 text-center relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 opacity-10 rotate-180">
+                <i class="fas fa-leaf text-9xl"></i>
+            </div>
+
+            <h2 class="text-3xl font-bold mb-10">Visit Peaceful Harmony</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+                <div>
+                    <h4 class="text-blue-300 font-bold uppercase tracking-widest text-xs mb-4">Location</h4>
+                    <p class="text-xl mb-1">6428 SW 155th Ave</p>
+                    <p class="text-xl">Beaverton, OR 97007</p>
+                    <p class="text-sm opacity-60 mt-2 italic">Quiet residential neighborhood</p>
+                </div>
+                <div>
+                    <h4 class="text-blue-300 font-bold uppercase tracking-widest text-xs mb-4">Nursing Contact</h4>
+                    <p class="text-xl mb-1 font-bold">Aster Birri, RN</p>
+                    <p class="text-xl"><a href="tel:5403945054" class="hover:text-blue-300 transition">Cell: 540-394-5054</a></p>
+                    <p class="text-sm opacity-60 mt-2">Available 24/7 for families</p>
+                </div>
+                <div>
+                    <h4 class="text-blue-300 font-bold uppercase tracking-widest text-xs mb-4">Office</h4>
+                    <p class="text-lg">Business: 503-430-5663</p>
+                    <p class="text-lg">Fax: 971-441-7035</p>
+                    <a href="mailto:PeacefulHarmonyafh@gmail.com" class="text-blue-300 underline mt-2 block">Email Us</a>
                 </div>
             </div>
-            <div class="h-full w-full bg-gray-200 relative group">
-                <div class="absolute inset-0 bg-transparent pointer-events-none group-hover:pointer-events-auto"></div>
+
+            <div class="mt-12 h-64 w-full rounded-xl overflow-hidden border border-white/20">
                 <iframe src="https://maps.google.com/maps?q=6428%20SW%20155th%20Ave%2C%20Beaverton%2C%20OR%2097007&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-sm">
-            <div>
-                <h4 class="text-white font-playfair text-xl mb-4">Peaceful Harmony</h4>
-                <p class="leading-relaxed mb-4">A licensed Adult Foster Care Home dedicated to providing a safe, dignified, and loving environment for seniors in our community.</p>
-            </div>
-            <div>
-                <h4 class="text-white font-bold uppercase tracking-widest mb-6">Quick Links</h4>
-                <ul class="space-y-3">
-                    <li><button onclick="scrollToSection('about')" class="hover:text-white transition">About Us</button></li>
-                    <li><button onclick="scrollToSection('care')" class="hover:text-white transition">Care Services</button></li>
-                    <li><button onclick="scrollToSection('location')" class="hover:text-white transition">Schedule Tour</button></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white font-bold uppercase tracking-widest mb-6">Legal & License</h4>
-                <p>Licensed by the State of Oregon.</p>
-                <p>© 2026 Peaceful Harmony AFH.</p>
-                <p class="mt-2 text-xs opacity-50">Owned & Managed by a Registered Nurse.</p>
-            </div>
-        </div>
+    <footer class="text-center py-10 opacity-50 text-xs tracking-widest uppercase">
+        <p>&copy; 2026 Peaceful Harmony Adult Foster Care Home</p>
+        <p class="mt-2">Licensed & Insured in Oregon</p>
     </footer>
 
     <script>
         function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ 
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
 
         const navbar = document.getElementById('navbar');
-        const navText = document.getElementById('nav-text');
-        const navSub = document.getElementById('nav-sub');
-        const navLinks = document.getElementById('nav-links');
-
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 navbar.classList.add('glass-nav');
                 navbar.classList.remove('transparent-nav');
-                navbar.classList.add('py-2');
-                navbar.classList.remove('py-4');
-                
-                navText.classList.remove('lg:text-white');
-                navText.classList.add('lg:text-slate-900');
-                navSub.classList.remove('lg:text-blue-200');
-                navSub.classList.add('lg:text-slate-600');
-                navLinks.classList.remove('lg:text-white');
-                navLinks.classList.add('lg:text-slate-900');
+                navbar.classList.add('shadow-lg');
             } else {
                 navbar.classList.remove('glass-nav');
+                navbar.classList.remove('shadow-lg');
                 navbar.classList.add('transparent-nav');
-                navbar.classList.add('py-4');
-                navbar.classList.remove('py-2');
-
-                navText.classList.add('lg:text-white');
-                navText.classList.remove('lg:text-slate-900');
-                navSub.classList.add('lg:text-blue-200');
-                navSub.classList.remove('lg:text-slate-600');
-                navLinks.classList.add('lg:text-white');
-                navLinks.classList.remove('lg:text-slate-900');
             }
         });
     </script>
